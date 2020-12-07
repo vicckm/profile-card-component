@@ -1,0 +1,122 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    & a {
+        color: hsl(228, 45%, 44%);
+    }
+}
+
+body {
+    background-color: $blue-100;
+    background-image: url("./images/bg-pattern-top.svg"), url("./images/bg-pattern-bottom.svg");
+    background-position: right 50vw bottom 30vh, left 50vw top 40vh;
+    background-repeat: no-repeat;
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 85vh;
+}
+
+img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    @media (max-width: $bk-ssm) {
+        background: $blue-100;
+        width: 300px;
+    }
+}
+
+.card {
+    background: $white;
+    border-radius: 20px;
+    height: 350px;
+    position: relative;
+    text-align: center;
+    width: 350px;
+
+    @media (max-width: $bk-ssm) {
+        height: 350px;
+        width: 300px;
+    }
+}
+
+.card-body {
+    img {
+        background: $white;
+        border: 5px solid $white;
+        border-radius: 100%;
+        bottom: 0;
+        display: flex;
+        position: absolute;
+        @include transform();
+
+        @media (max-width: $bk-ssm) {
+            height: 100px;
+            width: 100px;
+            @include transform(100%, -180%);
+        }
+    }
+
+    span {
+        color: $blue-900;
+        display: inline-block;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 60px;
+        &:nth-child(3) {
+            color: $gray-100;
+            font-weight: lighter;
+            margin-left: 5px;
+        }
+    }
+
+    p {
+        border-bottom: 1px solid $gray-100;
+        color: $gray-100;
+        padding: 10px 0 20px 0;
+    }
+
+    ul {
+        display: flex;
+        justify-content: space-around;
+
+        li {
+            align-items: center;
+            list-style-type: none;
+            p {
+                border: none;
+                color: $blue-900;
+                font-size: 18px;
+                font-weight: bold;
+                margin-top: 25px;
+                padding: 0;
+                @media (max-width: $bk-ssm) {
+                    margin-top: 35px;
+                }
+            }
+
+            small {
+                color: $gray-100;
+            }
+        }
+    }
+}
+.footer {
+  & .attribution {
+      position: relative;
+      bottom: 0;
+  }
+}
